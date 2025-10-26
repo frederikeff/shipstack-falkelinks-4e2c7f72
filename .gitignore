@@ -1,0 +1,19 @@
+# Dependencies
+/node_modules
+/frontend/node_modules
+
+# Next.js build outputs
+/frontend/.next
+/frontend/out
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local environment variables
+.env.local
+.env.*.local
+
+# Misc
+.DS_Store
