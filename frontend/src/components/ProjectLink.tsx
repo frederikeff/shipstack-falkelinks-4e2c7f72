@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface ProjectLinkProps {
   href: string;
   title: string;
@@ -13,7 +15,7 @@ export default function ProjectLink({ href, title, imageSrc }: ProjectLinkProps)
       className="m-4 flex w-full max-w-2xl items-center rounded-lg bg-white p-4 shadow-lg transition-transform hover:scale-105"
       style={{ color: '#4c2a85' }}
     >
-      <img
+      <Image
         src={imageSrc}
         alt={`${title} logo`}
         width={80}

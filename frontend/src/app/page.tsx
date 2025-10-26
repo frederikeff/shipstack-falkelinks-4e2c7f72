@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ProjectLink from "@/components/ProjectLink";
 import LabGridItem from "@/components/LabGridItem";
 
@@ -31,7 +32,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <div className="flex flex-col items-center">
-        <img
+        <Image
           src="https://assets.skool.com/f/997b615b8b8a4757949f52b71fd75241/0813149b55df480ca4da022e17c579d285942e9fe1ce44f6b2a80873d59235e0-md.jpg"
           alt="Frederike Falke profile picture"
           width={150}
