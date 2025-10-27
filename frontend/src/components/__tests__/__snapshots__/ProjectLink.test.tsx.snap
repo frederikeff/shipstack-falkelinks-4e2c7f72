@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`renders correctly 1`] = `
+<div>
+  <a
+    class="m-4 flex w-full max-w-2xl items-center rounded-lg bg-white p-4 text-brand-purple shadow-lg transition-transform hover:scale-105"
+    href="https://example.com"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <img
+      alt="Example logo"
+      class="rounded-lg"
+      data-nimg="1"
+      decoding="async"
+      height="80"
+      loading="lazy"
+      src="/_next/image?url=https%3A%2F%2Fvia.placeholder.com%2F150&w=256&q=75"
+      srcset="/_next/image?url=https%3A%2F%2Fvia.placeholder.com%2F150&w=96&q=75 1x, /_next/image?url=https%3A%2F%2Fvia.placeholder.com%2F150&w=256&q=75 2x"
+      style="color: transparent;"
+      width="80"
+    />
+    <h2
+      class="ml-4 text-xl font-semibold"
+    >
+      Example
+    </h2>
+  </a>
+</div>
+`;

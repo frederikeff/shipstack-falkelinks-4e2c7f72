@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`renders correctly 1`] = `
+<div>
+  <a
+    class="flex h-32 w-32 items-center justify-center rounded-lg bg-brand-pink p-4 text-center font-bold text-white shadow-lg transition-transform hover:scale-105"
+    href="https://example.com"
+  >
+    Example
+  </a>
+</div>
+`;

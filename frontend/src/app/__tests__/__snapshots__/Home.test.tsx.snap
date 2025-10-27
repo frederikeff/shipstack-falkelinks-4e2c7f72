@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`renders correctly 1`] = `
+<div>
+  <main
+    class="flex min-h-screen flex-col items-center p-24"
+  >
+    <div
+      class="flex flex-col items-center"
+    >
+      <img
+        alt="Frederike Falke profile picture"
+        class="rounded-full"
+        data-nimg="1"
+        decoding="async"
+        height="150"
+        loading="lazy"
+        src="/_next/image?url=https%3A%2F%2Fassets.skool.com%2Ff%2F997b615b8b8a4757949f52b71fd75241%2F0813149b55df480ca4da022e17c579d285942e9fe1ce44f6b2a80873d59235e0-md.jpg&w=384&q=75"
+        srcset="/_next/image?url=https%3A%2F%2Fassets.skool.com%2Ff%2F997b615b8b8a4757949f52b71fd75241%2F0813149b55df480ca4da022e17c579d285942e9fe1ce44f6b2a80873d59235e0-md.jpg&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Fassets.skool.com%2Ff%2F997b615b8b8a4757949f52b71fd75241%2F0813149b55df480ca4da022e17c579d285942e9fe1ce44f6b2a80873d59235e0-md.jpg&w=384&q=75 2x"
+        style="color: transparent;"
+        width="150"
+      />
+      <h1
+        class="mt-4 text-2xl font-bold"
+      >
+        Frederike Falke
+      </h1>
+    </div>
+    <div
+      class="mt-8 flex w-full flex-col items-center"
+    >
+      <a
+        class="m-4 flex w-full max-w-2xl items-center rounded-lg bg-white p-4 text-brand-purple shadow-lg transition-transform hover:scale-105"
+        href="https://www.nxtconnect.ai"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="Nxtconnect logo"
+          class="rounded-lg"
+          data-nimg="1"
+          decoding="async"
+          height="80"
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fname%3DNxtConnect%26size%3D400%26background%3D6366f1%26color%3Dfff%26bold%3Dtrue&w=256&q=75"
+          srcset="/_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fname%3DNxtConnect%26size%3D400%26background%3D6366f1%26color%3Dfff%26bold%3Dtrue&w=96&q=75 1x, /_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fname%3DNxtConnect%26size%3D400%26background%3D6366f1%26color%3Dfff%26bold%3Dtrue&w=256&q=75 2x"
+          style="color: transparent;"
+          width="80"
+        />
+        <h2
+          class="ml-4 text-xl font-semibold"
+        >
+          Nxtconnect
+        </h2>
+      </a>
+      <a
+        class="m-4 flex w-full max-w-2xl items-center rounded-lg bg-white p-4 text-brand-purple shadow-lg transition-transform hover:scale-105"
+        href="https://www.creativeailab.ai"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="Creative Ai Lab logo"
+          class="rounded-lg"
+          data-nimg="1"
+          decoding="async"
+          height="80"
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fname%3DCreative%2BAI%2BLab%26size%3D400%26background%3D6366f1%26color%3Dfff%26bold%3Dtrue&w=256&q=75"
+          srcset="/_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fname%3DCreative%2BAI%2BLab%26size%3D400%26background%3D6366f1%26color%3Dfff%26bold%3Dtrue&w=96&q=75 1x, /_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fname%3DCreative%2BAI%2BLab%26size%3D400%26background%3D6366f1%26color%3Dfff%26bold%3Dtrue&w=256&q=75 2x"
+          style="color: transparent;"
+          width="80"
+        />
+        <h2
+          class="ml-4 text-xl font-semibold"
+        >
+          Creative Ai Lab
+        </h2>
+      </a>
+      <a
+        class="m-4 flex w-full max-w-2xl items-center rounded-lg bg-white p-4 text-brand-purple shadow-lg transition-transform hover:scale-105"
+        href="https://www.shaped.ai"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="Shaped.ai logo"
+          class="rounded-lg"
+          data-nimg="1"
+          decoding="async"
+          height="80"
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fname%3DShaped%26size%3D400%26background%3Dec4899%26color%3Dfff%26bold%3Dtrue&w=256&q=75"
+          srcset="/_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fname%3DShaped%26size%3D400%26background%3Dec4899%26color%3Dfff%26bold%3Dtrue&w=96&q=75 1x, /_next/image?url=https%3A%2F%2Fui-avatars.com%2Fapi%2F%3Fname%3DShaped%26size%3D400%26background%3Dec4899%26color%3Dfff%26bold%3Dtrue&w=256&q=75 2x"
+          style="color: transparent;"
+          width="80"
+        />
+        <h2
+          class="ml-4 text-xl font-semibold"
+        >
+          Shaped.ai
+        </h2>
+      </a>
+    </div>
+    <div
+      class="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3"
+    >
+      <a
+        class="flex h-32 w-32 items-center justify-center rounded-lg bg-brand-pink p-4 text-center font-bold text-white shadow-lg transition-transform hover:scale-105"
+        href="https://www.creativeailab.ai/builder-lab"
+      >
+        Builder Lab
+      </a>
+      <a
+        class="flex h-32 w-32 items-center justify-center rounded-lg bg-brand-pink p-4 text-center font-bold text-white shadow-lg transition-transform hover:scale-105"
+        href="https://www.creativeailab.ai/character-lab"
+      >
+        Character Lab
+      </a>
+      <a
+        class="flex h-32 w-32 items-center justify-center rounded-lg bg-brand-pink p-4 text-center font-bold text-white shadow-lg transition-transform hover:scale-105"
+        href="https://www.creativeailab.ai/research-lab"
+      >
+        Research Lab
+      </a>
+      <a
+        class="flex h-32 w-32 items-center justify-center rounded-lg bg-brand-pink p-4 text-center font-bold text-white shadow-lg transition-transform hover:scale-105"
+        href="https://www.creativeailab.ai/mind-lab"
+      >
+        Mind Lab
+      </a>
+      <a
+        class="flex h-32 w-32 items-center justify-center rounded-lg bg-brand-pink p-4 text-center font-bold text-white shadow-lg transition-transform hover:scale-105"
+        href="https://www.creativeailab.ai/creator-lab"
+      >
+        Creator Lab
+      </a>
+    </div>
+    <div
+      class="mt-8"
+    >
+      <a
+        class="rounded-full bg-brand-purple px-8 py-4 font-bold text-white shadow-lg transition-transform hover:scale-105"
+        href="mailto:hi@creativeailab.ai"
+      >
+        Email Me
+      </a>
+    </div>
+  </main>
+</div>
+`;

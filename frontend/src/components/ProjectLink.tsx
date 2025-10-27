@@ -12,8 +12,7 @@ export default function ProjectLink({ href, title, imageSrc }: ProjectLinkProps)
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="m-4 flex w-full max-w-2xl items-center rounded-lg bg-white p-4 shadow-lg transition-transform hover:scale-105"
-      style={{ color: '#4c2a85' }}
+      className="m-4 flex w-full max-w-2xl items-center rounded-lg bg-white p-4 text-brand-purple shadow-lg transition-transform hover:scale-105"
     >
       <Image
         src={imageSrc}
