@@ -1,6 +1,9 @@
+'use client';
+
 import Image from "next/image";
 import ProjectLink from "@/components/ProjectLink";
 import LabGridItem from "@/components/LabGridItem";
+import { trackClick } from "@/utils/track";
 
 export default function Home() {
   const projects = [
@@ -29,6 +32,10 @@ export default function Home() {
     { href: "https://www.creativeailab.ai/creator-lab", title: "Creator Lab" },
   ];
 
+  const handleEmailClick = () => {
+    trackClick("mailto:hi@creativeailab.ai");
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <div className="flex flex-col items-center">
@@ -54,6 +61,7 @@ export default function Home() {
       <div className="mt-8">
         <a
           href="mailto:hi@creativeailab.ai"
+          onClick={handleEmailClick}
           className="rounded-full bg-purple-600 px-8 py-4 font-bold text-white shadow-lg transition-transform hover:scale-105"
         >
           Email Me
