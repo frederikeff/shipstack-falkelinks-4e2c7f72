@@ -39,7 +39,7 @@ export default function Home() {
           height={150}
           className="rounded-full"
         />
-        <h1 className="mt-4 text-2xl font-bold">Frederike Falke</h1>
+        <h1 className="mt-4 text-2xl font-bold text-pink">Frederike Falke</h1>
       </div>
       <div className="mt-8 flex w-full flex-col items-center">
         {projects.map((project) => (
@@ -54,7 +54,7 @@ export default function Home() {
       <div className="mt-8">
         <a
           href="mailto:hi@creativeailab.ai"
-          className="rounded-full bg-purple-600 px-8 py-4 font-bold text-white shadow-lg transition-transform hover:scale-105"
+          className="rounded-full bg-pink px-8 py-4 font-bold text-white shadow-lg transition-transform hover:scale-105"
         >
           Email Me
         </a>
