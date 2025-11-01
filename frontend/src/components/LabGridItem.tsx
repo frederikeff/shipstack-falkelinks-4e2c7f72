@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 
@@ -8,17 +8,21 @@ interface LabGridItemProps {
 }
 
 export default function LabGridItem({ href, title }: LabGridItemProps) {
-  const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleClick = async () => {
     try {
-      await fetch('/api/track', {
-        method: 'POST',
+      await fetch("/api/track", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ url: href }),
+        body: JSON.stringify({
+          type: "labGridItemClick",
+          title,
+          href,
+        }),
       });
     } catch (error) {
-      console.error('Failed to track click', error);
+      console.error("Error tracking event:", error);
     }
   };
 

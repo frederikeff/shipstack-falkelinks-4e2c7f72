@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 
@@ -9,17 +9,21 @@ interface ProjectLinkProps {
 }
 
 export default function ProjectLink({ href, title, imageSrc }: ProjectLinkProps) {
-  const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleClick = async () => {
     try {
-      await fetch('/api/track', {
-        method: 'POST',
+      await fetch("/api/track", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ url: href }),
+        body: JSON.stringify({
+          type: "projectLinkClick",
+          title,
+          href,
+        }),
       });
     } catch (error) {
-      console.error('Failed to track click', error);
+      console.error("Error tracking event:", error);
     }
   };
 
