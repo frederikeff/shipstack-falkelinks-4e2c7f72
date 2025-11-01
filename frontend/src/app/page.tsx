@@ -58,7 +58,7 @@ export default function Home() {
         <a
           href="mailto:hi@creativeailab.ai"
           className="rounded-full bg-purple-600 px-8 py-4 font-bold text-white shadow-lg transition-transform hover:scale-105"
-          onClick={() => trackClick("mailto:hi@creativeailab.ai")}
+          onClick={() => trackClick('Email Link Clicked')}
         >
           Email Me
         </a>

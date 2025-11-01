@@ -10,6 +10,10 @@ interface ProjectLinkProps {
 }
 
 export default function ProjectLink({ href, title, imageSrc }: ProjectLinkProps) {
+  const handleClick = () => {
+    trackClick(`Project Link Clicked: ${title}`);
+  };
+
   return (
     <a
       href={href}
@@ -17,7 +21,7 @@ export default function ProjectLink({ href, title, imageSrc }: ProjectLinkProps)
       rel="noopener noreferrer"
       className="m-4 flex w-full max-w-2xl items-center rounded-lg bg-white p-4 shadow-lg transition-transform hover:scale-105"
       style={{ color: '#4c2a85' }}
-      onClick={() => trackClick(href)}
+      onClick={handleClick}
     >
       <Image
         src={imageSrc}

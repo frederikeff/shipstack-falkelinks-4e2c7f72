@@ -2,12 +2,12 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "esModuleInterop": true,
-    "paths": {
-      "@/components/*": ["./src/components/*"],
-      "@/app/*": ["./src/app/*"],
-      "@/utils/*": ["./src/utils/*"]
-    }
+    "esModuleInterop": true
   },
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx"
+, "__tests__/**/*.ts", "__tests__/**/*.tsx"  ]
 }

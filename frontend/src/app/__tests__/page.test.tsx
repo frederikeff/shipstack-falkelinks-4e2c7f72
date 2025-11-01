@@ -3,15 +3,25 @@ import userEvent from '@testing-library/user-event';
 import Home from '../page';
 import { trackClick } from '@/utils/analytics';
 
-jest.mock('@/utils/analytics');
+jest.mock('@/utils/analytics', () => ({
+  trackClick: jest.fn(),
+}));
 
-describe('Home page', () => {
-  it('should call trackClick with the correct mailto link on email button click', async () => {
+describe('Home', () => {
+  it('renders the heading', () => {
+    render(<Home />);
+    const heading = screen.getByRole('heading', {
+      name: /Frederike Falke/i,
+    });
+    expect(heading).toBeInTheDocument();
+  });
+
+  it('calls trackClick when the email link is clicked', async () => {
     render(<Home />);
 
-    const emailLink = screen.getByRole('link', { name: /Email Me/i });
+    const emailLink = screen.getByText('Email Me');
     await userEvent.click(emailLink);
 
-    expect(trackClick).toHaveBeenCalledWith('mailto:hi@creativeailab.ai');
+    expect(trackClick).toHaveBeenCalledWith('Email Link Clicked');
   });
 });

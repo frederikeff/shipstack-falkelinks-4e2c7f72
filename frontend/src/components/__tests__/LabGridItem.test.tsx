@@ -3,20 +3,17 @@ import userEvent from '@testing-library/user-event';
 import LabGridItem from '../LabGridItem';
 import { trackClick } from '@/utils/analytics';
 
-jest.mock('@/utils/analytics');
+jest.mock('@/utils/analytics', () => ({
+  trackClick: jest.fn(),
+}));
 
 describe('LabGridItem', () => {
-  it('should call trackClick with the correct href on click', async () => {
-    const lab = {
-      href: 'https://example.com/lab',
-      title: 'Example Lab',
-    };
+  it('calls trackClick with the correct event name', async () => {
+    render(<LabGridItem href="/test" title="Test Lab" />);
 
-    render(<LabGridItem {...lab} />);
+    const link = screen.getByRole('link');
+    await userEvent.click(link);
 
-    const linkElement = screen.getByRole('link', { name: /Example Lab/i });
-    await userEvent.click(linkElement);
-
-    expect(trackClick).toHaveBeenCalledWith(lab.href);
+    expect(trackClick).toHaveBeenCalledWith('Lab Grid Item Clicked: Test Lab');
   });
 });
