@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ProjectLink from "@/components/ProjectLink";
 import LabGridItem from "@/components/LabGridItem";
+import EmailLink from "@/components/EmailLink";
 
 export default function Home() {
   const projects = [
@@ -52,12 +53,9 @@ export default function Home() {
         ))}
       </div>
       <div className="mt-8">
-        <a
-          href="mailto:hi@creativeailab.ai"
-          className="rounded-full bg-purple-600 px-8 py-4 font-bold text-white shadow-lg transition-transform hover:scale-105"
-        >
-          Email Me
-        </a>
+        <EmailLink href="mailto:hi@creativeailab.ai">
+            Email Me
+        </EmailLink>
       </div>
     </main>
   );

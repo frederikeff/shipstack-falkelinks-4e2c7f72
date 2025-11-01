@@ -1,13 +1,11 @@
 'use client';
 
-import Link from "next/link";
-
-interface LabGridItemProps {
+interface EmailLinkProps {
   href: string;
-  title: string;
+  children: React.ReactNode;
 }
 
-export default function LabGridItem({ href, title }: LabGridItemProps) {
+export default function EmailLink({ href, children }: EmailLinkProps) {
   const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
     try {
       await fetch('/api/track', {
@@ -23,12 +21,12 @@ export default function LabGridItem({ href, title }: LabGridItemProps) {
   };
 
   return (
-    <Link
+    <a
       href={href}
       onClick={handleClick}
-      className="flex h-32 w-32 items-center justify-center rounded-lg bg-pink-500 p-4 text-center font-bold text-white shadow-lg transition-transform hover:scale-105"
+      className="rounded-full bg-purple-600 px-8 py-4 font-bold text-white shadow-lg transition-transform hover:scale-105"
     >
-      {title}
-    </Link>
+      {children}
+    </a>
   );
 }
