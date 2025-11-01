@@ -1,25 +1,32 @@
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import LabGridItem from '../LabGridItem';
-import * as analytics from '@/lib/analytics';
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import LabGridItem from "../LabGridItem";
+import * as analytics from "@/lib/analytics";
 
-jest.mock('@/lib/analytics');
+jest.mock("@/lib/analytics", () => ({
+  trackEvent: jest.fn(),
+}));
 
-describe('LabGridItem', () => {
-  it('should call trackEvent on click', async () => {
-    const trackEventSpy = jest.spyOn(analytics, 'trackEvent');
+describe("LabGridItem", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it("should track an event when clicked", async () => {
     const props = {
-      href: 'https://example.com',
-      title: 'Example',
+      href: "/lab",
+      title: "Test Lab",
     };
 
     render(<LabGridItem {...props} />);
 
-    await userEvent.click(screen.getByRole('link'));
+    const link = screen.getByRole("link", { name: /Test Lab/i });
 
-    expect(trackEventSpy).toHaveBeenCalledWith('Lab Link Click', {
-      href: props.href,
+    await userEvent.click(link);
+
+    expect(analytics.trackEvent).toHaveBeenCalledWith("Lab Link Click", {
       title: props.title,
+      href: props.href,
     });
   });
 });
