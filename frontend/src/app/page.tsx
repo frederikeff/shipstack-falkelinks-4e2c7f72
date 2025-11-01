@@ -1,6 +1,9 @@
+'use client'
+
 import Image from "next/image";
 import ProjectLink from "@/components/ProjectLink";
 import LabGridItem from "@/components/LabGridItem";
+import { event } from "@/lib/gtag";
 
 export default function Home() {
   const projects = [
@@ -29,6 +32,15 @@ export default function Home() {
     { href: "https://www.creativeailab.ai/creator-lab", title: "Creator Lab" },
   ];
 
+  const handleEmailClick = () => {
+    event({
+      action: 'click',
+      category: 'Contact',
+      label: 'Email',
+      value: 1,
+    });
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <div className="flex flex-col items-center">
@@ -55,6 +67,7 @@ export default function Home() {
         <a
           href="mailto:hi@creativeailab.ai"
           className="rounded-full bg-purple-600 px-8 py-4 font-bold text-white shadow-lg transition-transform hover:scale-105"
+          onClick={handleEmailClick}
         >
           Email Me
         </a>
