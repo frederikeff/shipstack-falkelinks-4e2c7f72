@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
 
 export async function POST(req: NextRequest) {
   try {
@@ -8,17 +6,23 @@ export async function POST(req: NextRequest) {
     const { event, ...rest } = body;
 
     if (!event) {
-      return NextResponse.json({ message: 'Event name is required' }, { status: 400 });
+      return NextResponse.json({ message: 'Missing event' }, { status: 400 });
     }
 
-    const logEntry = `${new Date().toISOString()} - EVENT: ${event}, DETAILS: ${JSON.stringify(rest)}\n`;
+    const logEntry = {
+      timestamp: new Date().toISOString(),
+      event,
+      ...rest,
+    };
 
-    const logDir = path.resolve(process.cwd());
-    await fs.appendFile(path.join(logDir, 'analytics.log'), logEntry);
+    console.log(JSON.stringify(logEntry));
 
-    return NextResponse.json({ message: 'Event tracked successfully' });
+    return NextResponse.json({ message: 'Logged' }, { status: 200 });
   } catch (error) {
-    console.error('Error tracking event:', error);
-    return NextResponse.json({ message: 'Error tracking event' }, { status: 500 });
+    console.error('Error processing analytics event:', error);
+    if (error instanceof SyntaxError) { // Handle cases where body is not valid JSON
+        return NextResponse.json({ message: 'Invalid JSON body' }, { status: 400 });
+    }
+    return NextResponse.json({ message: 'Error logging event' }, { status: 500 });
   }
 }

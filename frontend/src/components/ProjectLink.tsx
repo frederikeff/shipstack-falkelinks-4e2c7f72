@@ -1,4 +1,5 @@
-'use client';
+"use client";
+
 import Image from "next/image";
 import { trackEvent } from "@/lib/analytics";
 
@@ -10,7 +11,7 @@ interface ProjectLinkProps {
 
 export default function ProjectLink({ href, title, imageSrc }: ProjectLinkProps) {
   const handleClick = () => {
-    trackEvent('ProjectLink Click', { href, title });
+    trackEvent("project_link_click", { href, title });
   };
 
   return (
