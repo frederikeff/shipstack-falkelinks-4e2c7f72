@@ -1,12 +1,15 @@
+
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json();
-    console.log('Analytics event:', body);
-    return NextResponse.json({ message: 'Event tracked' }, { status: 200 });
+    const { url } = await req.json();
+    if (url) {
+      console.log('Tracked click:', url);
+      return NextResponse.json({ message: 'Tracked' }, { status: 200 });
+    }
+    return NextResponse.json({ message: 'URL not provided' }, { status: 400 });
   } catch (error) {
-    console.error('Error tracking event:', error);
-    return NextResponse.json({ message: 'Error tracking event' }, { status: 500 });
+    return NextResponse.json({ message: 'Error tracking click' }, { status: 500 });
   }
 }

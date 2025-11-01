@@ -1,7 +1,6 @@
 'use client';
 
 import Image from "next/image";
-import { trackClick } from "@/utils/analytics";
 
 interface ProjectLinkProps {
   href: string;
@@ -10,8 +9,18 @@ interface ProjectLinkProps {
 }
 
 export default function ProjectLink({ href, title, imageSrc }: ProjectLinkProps) {
-  const handleClick = () => {
-    trackClick({ Categorie: 'Project Link', Title: title, Url: href });
+  const handleClick = async () => {
+    try {
+      await fetch('/api/track', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ url: href }),
+      });
+    } catch (error) {
+      console.error('Error tracking click:', error);
+    }
   };
 
   return (
@@ -19,9 +28,9 @@ export default function ProjectLink({ href, title, imageSrc }: ProjectLinkProps)
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={handleClick}
       className="m-4 flex w-full max-w-2xl items-center rounded-lg bg-white p-4 shadow-lg transition-transform hover:scale-105"
       style={{ color: '#4c2a85' }}
+      onClick={handleClick}
     >
       <Image
         src={imageSrc}
