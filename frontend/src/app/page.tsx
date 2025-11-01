@@ -1,8 +1,15 @@
+'use client';
+
 import Image from "next/image";
 import ProjectLink from "@/components/ProjectLink";
 import LabGridItem from "@/components/LabGridItem";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Home() {
+  const handleEmailClick = () => {
+    trackEvent('Email Link Click', { href: 'mailto:hi@creativeailab.ai' });
+  };
+
   const projects = [
     {
       href: "https://www.nxtconnect.ai",
@@ -55,6 +62,7 @@ export default function Home() {
         <a
           href="mailto:hi@creativeailab.ai"
           className="rounded-full bg-purple-600 px-8 py-4 font-bold text-white shadow-lg transition-transform hover:scale-105"
+          onClick={handleEmailClick}
         >
           Email Me
         </a>
