@@ -1,6 +1,6 @@
 import Image from "next/image";
 import ProjectLink from "@/components/ProjectLink";
-import LabGridItem from "@/components/LabGridItem";
+import LabGrid from "@/components/LabGrid";
 
 export default function Home() {
   const projects = [
@@ -21,14 +21,6 @@ export default function Home() {
     },
   ];
 
-  const labs = [
-    { href: "https://www.creativeailab.ai/builder-lab", title: "Builder Lab" },
-    { href: "https://www.creativeailab.ai/character-lab", title: "Character Lab" },
-    { href: "https://www.creativeailab.ai/research-lab", title: "Research Lab" },
-    { href: "https://www.creativeailab.ai/mind-lab", title: "Mind Lab" },
-    { href: "https://www.creativeailab.ai/creator-lab", title: "Creator Lab" },
-  ];
-
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <div className="flex flex-col items-center">
@@ -46,11 +38,7 @@ export default function Home() {
           <ProjectLink key={project.title} {...project} />
         ))}
       </div>
-      <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3">
-        {labs.map((lab) => (
-          <LabGridItem key={lab.title} {...lab} />
-        ))}
-      </div>
+      <LabGrid />
       <div className="mt-8">
         <a
           href="mailto:hi@creativeailab.ai"
