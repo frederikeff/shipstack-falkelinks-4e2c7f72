@@ -3,7 +3,7 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "module": "commonjs"
   },
-  "include": ["**/*.test.ts", "**/*.test.tsx"]
+  "include": ["**/*.ts", "**/*.tsx"]
 }

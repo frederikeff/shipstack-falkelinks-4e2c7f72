@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+import { appendFile } from 'fs/promises';
+import { join } from 'path';
 
 export async function POST(req: NextRequest) {
   try {
@@ -9,11 +9,12 @@ export async function POST(req: NextRequest) {
       ...body,
       timestamp: new Date().toISOString(),
     };
+    const logEntry = JSON.stringify(event) + '\n';
 
-    const logFilePath = path.join(process.cwd(), 'analytics.log');
-    await fs.appendFile(logFilePath, JSON.stringify(event) + '\n');
+    const logPath = join(process.cwd(), 'analytics.log');
+    await appendFile(logPath, logEntry);
 
-    return NextResponse.json({ message: 'Event tracked' });
+    return NextResponse.json({ message: 'Event tracked' }, { status: 200 });
   } catch (error) {
     console.error('Error tracking event:', error);
     return NextResponse.json({ message: 'Error tracking event' }, { status: 500 });
