@@ -1,26 +1,22 @@
 
 import { render, screen, fireEvent } from '@testing-library/react';
 import LabGridItem from '@/components/LabGridItem';
-import { trackClick } from '@/utils/track';
+import { trackEvent } from '@/utils/track';
 
 jest.mock('@/utils/track', () => ({
-  trackClick: jest.fn(),
+  trackEvent: jest.fn(),
 }));
 
 describe('LabGridItem', () => {
   it('should render the lab grid item and track clicks', () => {
-    render(
-      <LabGridItem
-        href="https://example.com"
-        title="Example"
-      />
-    );
+    render(<LabGridItem href="/lab" title="Test Lab" />);
 
-    const link = screen.getByRole('link', { name: /Example/i });
-    expect(link).toBeInTheDocument();
-
+    const link = screen.getByRole('link', { name: /Test Lab/i });
     fireEvent.click(link);
 
-    expect(trackClick).toHaveBeenCalledWith('https://example.com', 'Example');
+    expect(trackEvent).toHaveBeenCalledWith('lab_grid_item_click', {
+      href: '/lab',
+      title: 'Test Lab',
+    });
   });
 });

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { trackClick } from "@/utils/track";
+import { trackEvent } from "@/utils/track";
 
 interface LabGridItemProps {
   href: string;
@@ -10,7 +10,7 @@ interface LabGridItemProps {
 
 export default function LabGridItem({ href, title }: LabGridItemProps) {
   const handleClick = () => {
-    trackClick(href, title);
+    trackEvent('lab_grid_item_click', { href, title });
   };
 
   return (

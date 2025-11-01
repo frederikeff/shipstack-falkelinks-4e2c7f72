@@ -1,10 +1,10 @@
 
 import { render, screen, fireEvent } from '@testing-library/react';
 import ProjectLink from '@/components/ProjectLink';
-import { trackClick } from '@/utils/track';
+import { trackEvent } from '@/utils/track';
 
 jest.mock('@/utils/track', () => ({
-  trackClick: jest.fn(),
+  trackEvent: jest.fn(),
 }));
 
 describe('ProjectLink', () => {
@@ -12,16 +12,17 @@ describe('ProjectLink', () => {
     render(
       <ProjectLink
         href="https://example.com"
-        title="Example"
+        title="Example Project"
         imageSrc="https://via.placeholder.com/150"
       />
     );
 
-    const link = screen.getByRole('link', { name: /Example/i });
-    expect(link).toBeInTheDocument();
-
+    const link = screen.getByRole('link', { name: /Example Project/i });
     fireEvent.click(link);
 
-    expect(trackClick).toHaveBeenCalledWith('https://example.com', 'Example');
+    expect(trackEvent).toHaveBeenCalledWith('project_link_click', {
+      href: 'https://example.com',
+      title: 'Example Project',
+    });
   });
 });
