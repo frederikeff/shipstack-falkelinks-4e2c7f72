@@ -1,28 +1,48 @@
-import Image from "next/image";
+'use client';
 
-interface ProjectLinkProps {
+import Image from 'next/image';
+
+type ProjectLinkProps = {
   href: string;
   title: string;
   imageSrc: string;
-}
+};
 
-export default function ProjectLink({ href, title, imageSrc }: ProjectLinkProps) {
+const trackClick = (href: string) => {
+  fetch('/api/track', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ href }),
+  });
+};
+
+export default function ProjectLink({
+  href,
+  title,
+  imageSrc,
+}: ProjectLinkProps) {
+  const handleClick = () => {
+    trackClick(href);
+  };
+
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="m-4 flex w-full max-w-2xl items-center rounded-lg bg-white p-4 shadow-lg transition-transform hover:scale-105"
-      style={{ color: '#4c2a85' }}
+      className="mb-4 flex w-full max-w-2xl items-center rounded-lg bg-purple-600 p-4 text-white shadow-lg transition-transform hover:scale-105"
+      onClick={handleClick}
     >
       <Image
         src={imageSrc}
         alt={`${title} logo`}
-        width={80}
-        height={80}
-        className="rounded-lg"
+        width={50}
+        height={50}
+        className="mr-4 rounded-md"
       />
-      <h2 className="ml-4 text-xl font-semibold">{title}</h2>
+      <span className="font-bold">{title}</span>
     </a>
   );
 }
