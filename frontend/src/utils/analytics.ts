@@ -1,3 +1,3 @@
-export const trackClick = (event: string, properties: Record<string, any>) => {
-  console.log("Analytics event:", event, properties);
+export const trackClick = (eventName: string, data?: Record<string, any>) => {
+  console.log(`[Analytics] Event: ${eventName}`, data);
 };

@@ -1,4 +1,4 @@
-// frontend/src/components/__tests__/ProjectLink.test.tsx
+
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ProjectLink from '../ProjectLink';
@@ -9,22 +9,21 @@ jest.mock('@/utils/analytics', () => ({
 }));
 
 describe('ProjectLink', () => {
-  it('should track clicks', async () => {
-    const trackClickSpy = jest.spyOn(analytics, 'trackClick');
-    render(
-      <ProjectLink
-        href="https://example.com"
-        title="Example"
-        imageSrc="https://via.placeholder.com/150"
-      />
-    );
+  it('should call trackClick with the correct arguments when clicked', async () => {
+    const props = {
+      href: 'https://example.com',
+      title: 'Example',
+      imageSrc: 'https://via.placeholder.com/150',
+    };
+
+    render(<ProjectLink {...props} />);
 
     const link = screen.getByRole('link');
     await userEvent.click(link);
 
-    expect(trackClickSpy).toHaveBeenCalledWith('project_link_click', {
-      href: 'https://example.com',
-      title: 'Example',
+    expect(analytics.trackClick).toHaveBeenCalledWith('Project Link Click', {
+      href: props.href,
+      title: props.title,
     });
   });
 });

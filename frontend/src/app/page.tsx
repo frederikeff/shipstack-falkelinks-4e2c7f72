@@ -32,10 +32,6 @@ export default function Home() {
     { href: "https://www.creativeailab.ai/creator-lab", title: "Creator Lab" },
   ];
 
-  const handleEmailClick = () => {
-    trackClick("email_link_click", { href: "mailto:hi@creativeailab.ai" });
-  };
-
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <div className="flex flex-col items-center">
@@ -62,7 +58,7 @@ export default function Home() {
         <a
           href="mailto:hi@creativeailab.ai"
           className="rounded-full bg-purple-600 px-8 py-4 font-bold text-white shadow-lg transition-transform hover:scale-105"
-          onClick={handleEmailClick}
+          onClick={() => trackClick("Email Link Click", { href: "mailto:hi@creativeailab.ai" })}
         >
           Email Me
         </a>
