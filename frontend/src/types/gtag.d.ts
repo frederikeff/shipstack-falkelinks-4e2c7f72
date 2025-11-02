@@ -1,11 +1,3 @@
-declare global {
-  interface Window {
-    gtag: (
-      type: "config" | "event",
-      trackingId: string,
-      options: Record<string, unknown>
-    ) => void;
-  }
+interface Window {
+  gtag: (param1: string, param2: string, param3: object) => void;
 }
-
-export {};

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import * as gtag from "@/lib/gtag";
+import * as gtag from '@/lib/gtag';
 
 interface ProjectLinkProps {
   href: string;
@@ -10,21 +10,23 @@ interface ProjectLinkProps {
 }
 
 export default function ProjectLink({ href, title, imageSrc }: ProjectLinkProps) {
+  const handleClick = () => {
+    gtag.event({
+      action: 'click',
+      category: 'Project Link',
+      label: title,
+      value: 1,
+    });
+  };
+
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={handleClick}
       className="m-4 flex w-full max-w-2xl items-center rounded-lg bg-white p-4 shadow-lg transition-transform hover:scale-105"
       style={{ color: '#4c2a85' }}
-      onClick={() => {
-        gtag.event({
-          action: "click",
-          category: "Project Link",
-          label: title,
-          value: 0,
-        });
-      }}
     >
       <Image
         src={imageSrc}
