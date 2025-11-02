@@ -3,24 +3,37 @@ import userEvent from '@testing-library/user-event';
 import LabGridItem from '@/components/LabGridItem';
 import * as gtag from '@/lib/gtag';
 
+// Mock the gtag module
 jest.mock('@/lib/gtag');
 
 describe('LabGridItem', () => {
+  const labProps = {
+    href: 'https://www.example.com',
+    title: 'Example Lab',
+  };
+
   beforeEach(() => {
+    // Clear mock calls before each test
     jest.clearAllMocks();
   });
 
-  it('calls the event function on click', async () => {
-    const user = userEvent.setup();
-    render(<LabGridItem href="/test-lab" title="Test Lab" />);
+  it('renders the lab grid item with the correct attributes', () => {
+    render(<LabGridItem {...labProps} />);
+    const link = screen.getByRole('link', { name: 'Example Lab' });
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveAttribute('href', labProps.href);
+  });
 
-    await user.click(screen.getByRole('link'));
-
+  it('calls the gtag event function on click', async () => {
+    render(<LabGridItem {...labProps} />);
+    const link = screen.getByRole('link', { name: 'Example Lab' });
+    await userEvent.click(link);
+    expect(gtag.event).toHaveBeenCalledTimes(1);
     expect(gtag.event).toHaveBeenCalledWith({
       action: 'click',
       category: 'Lab Grid Item',
-      label: 'Test Lab',
-      value: 0,
+      label: labProps.title,
+      value: 1,
     });
   });
 });

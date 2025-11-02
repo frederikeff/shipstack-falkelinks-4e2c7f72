@@ -29,10 +29,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
         <Suspense fallback={null}>
           <Analytics />
         </Suspense>
+        {children}
       </body>
     </html>
   );

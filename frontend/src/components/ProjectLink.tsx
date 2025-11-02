@@ -9,16 +9,19 @@ interface ProjectLinkProps {
   imageSrc: string;
 }
 
-export default function ProjectLink({ href, title, imageSrc }: ProjectLinkProps) {
+export default function ProjectLink({
+  href,
+  title,
+  imageSrc,
+}: ProjectLinkProps) {
   const handleClick = () => {
     gtag.event({
       action: 'click',
       category: 'Project Link',
       label: title,
-      value: 0,
+      value: 1,
     });
   };
-
   return (
     <a
       href={href}

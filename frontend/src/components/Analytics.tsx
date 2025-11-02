@@ -1,7 +1,7 @@
 'use client';
 
-import Script from 'next/script';
 import { usePathname, useSearchParams } from 'next/navigation';
+import Script from 'next/script';
 import { useEffect } from 'react';
 import { GA_TRACKING_ID, pageview } from '@/lib/gtag';
 
@@ -19,7 +19,7 @@ export default function Analytics() {
     }
   }, [pathname, searchParams]);
 
-  if (process.env.NODE_ENV !== 'production') {
+  if (!GA_TRACKING_ID) {
     return null;
   }
 
@@ -28,12 +28,10 @@ export default function Analytics() {
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-        data-testid="gtag-script"
       />
       <Script
         id="gtag-init"
         strategy="afterInteractive"
-        data-testid="gtag-init-script"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];

@@ -14,7 +14,7 @@ export default function LabGridItem({ href, title }: LabGridItemProps) {
       action: 'click',
       category: 'Lab Grid Item',
       label: title,
-      value: 0,
+      value: 1,
     });
   };
 
