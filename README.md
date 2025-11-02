@@ -1,5 +1,7 @@
 # FalkeLinks
 
+<!-- E2E Test: This README.md file has been modified as part of an end-to-end test to validate the automated feature development workflow -->
+
 A vibrant, personalized link hub for Frederike Falke's creative AI ventures
 
 ## Project Vision
