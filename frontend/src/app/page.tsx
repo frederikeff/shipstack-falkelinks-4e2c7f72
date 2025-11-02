@@ -46,7 +46,7 @@ export default function Home() {
           <ProjectLink key={project.title} {...project} />
         ))}
       </div>
-      <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3">
+      <div data-testid="lab-grid" className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3">
         {labs.map((lab) => (
           <LabGridItem key={lab.title} {...lab} />
         ))}
