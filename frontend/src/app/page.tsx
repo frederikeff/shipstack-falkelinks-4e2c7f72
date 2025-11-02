@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import ProjectLink from "@/components/ProjectLink";
 import LabGridItem from "@/components/LabGridItem";
+import * as gtag from "@/lib/gtag";
 
 export default function Home() {
   const projects = [
@@ -55,6 +58,14 @@ export default function Home() {
         <a
           href="mailto:hi@creativeailab.ai"
           className="rounded-full bg-purple-600 px-8 py-4 font-bold text-white shadow-lg transition-transform hover:scale-105"
+          onClick={() => {
+            gtag.event({
+              action: "click",
+              category: "Contact",
+              label: "Email",
+              value: 1,
+            });
+          }}
         >
           Email Me
         </a>
